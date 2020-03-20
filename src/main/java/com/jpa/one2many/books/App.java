@@ -17,7 +17,9 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        save();
+        //save();
+        System.out.println(service.getBooksRepository().findByISBN("123"));
+        System.out.println(service.getBooksRepository().findByAuthor("Vincent"));
     }
     
     public static void save() {

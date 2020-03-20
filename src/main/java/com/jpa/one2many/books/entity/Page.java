@@ -82,4 +82,9 @@ public class Page implements Serializable {
         this.book = book;
     }
 
+    @Override
+    public String toString() {
+        return "Page{" + "id=" + id + ", number=" + number + ", content=" + content + ", chapter=" + chapter + '}';
+    }
+
 }

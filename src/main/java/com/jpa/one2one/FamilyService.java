@@ -6,22 +6,19 @@ import org.springframework.stereotype.Service;
 @Service("familyService")
 public class FamilyService {
     @Autowired
-    private HusbandRepository hr;
+    private HusbandRepository husbandRepository;
     
     @Autowired
-    private WifeRepository wr;
-    
-    public void save(Husband husband) {
-        hr.save(husband);
-        System.out.println("Hasband save OK !");
+    private WifeRepository wifeRepository;
+
+    public HusbandRepository getHusbandRepository() {
+        return husbandRepository;
+    }
+
+    public WifeRepository getWifeRepository() {
+        return wifeRepository;
     }
     
-    public Husband findHusbandById(Long id) {
-        return hr.findById(id).get();
-    }
     
-    public Wife findWifeById(Long id) {
-        return wr.findById(id).get();
-    }
     
 }

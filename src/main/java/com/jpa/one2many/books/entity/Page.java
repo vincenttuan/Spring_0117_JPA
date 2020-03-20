@@ -1,7 +1,6 @@
-package com.jpa.one2many.books;
+package com.jpa.one2many.books.entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,12 +17,11 @@ public class Page implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private int number;
     private String content;
     private String chapter;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) // optional = false (inner join), optional = true (left join) 預設
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
@@ -77,46 +75,4 @@ public class Page implements Serializable {
         this.book = book;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.id);
-        hash = 97 * hash + this.number;
-        hash = 97 * hash + Objects.hashCode(this.content);
-        hash = 97 * hash + Objects.hashCode(this.chapter);
-        hash = 97 * hash + Objects.hashCode(this.book);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Page other = (Page) obj;
-        if (this.number != other.number) {
-            return false;
-        }
-        if (!Objects.equals(this.content, other.content)) {
-            return false;
-        }
-        if (!Objects.equals(this.chapter, other.chapter)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.book, other.book)) {
-            return false;
-        }
-        return true;
-    }
-
-    
 }

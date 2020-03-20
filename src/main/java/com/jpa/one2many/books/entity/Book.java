@@ -1,4 +1,4 @@
-package com.jpa.one2many.books;
+package com.jpa.one2many.books.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -22,7 +22,9 @@ public class Book implements Serializable {
     private Long id;
 
     private String title;
+    
     private String author;
+    
     @Column(unique = true)
     private String isbn;
 
@@ -79,46 +81,5 @@ public class Book implements Serializable {
         this.pages = pages;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.title);
-        hash = 79 * hash + Objects.hashCode(this.author);
-        hash = 79 * hash + Objects.hashCode(this.isbn);
-        hash = 79 * hash + Objects.hashCode(this.pages);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Book other = (Book) obj;
-        if (!Objects.equals(this.title, other.title)) {
-            return false;
-        }
-        if (!Objects.equals(this.author, other.author)) {
-            return false;
-        }
-        if (!Objects.equals(this.isbn, other.isbn)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.pages, other.pages)) {
-            return false;
-        }
-        return true;
-    }
-    
     
 }

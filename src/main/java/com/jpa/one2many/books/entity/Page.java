@@ -17,9 +17,9 @@ public class Page implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int number;
-    private String content;
-    private String chapter;
+    private int number;     // 頁數
+    private String content; // 內容
+    private String chapter; // 章節
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false) // optional = false (inner join), optional = true (left join) 預設
     @JoinColumn(name = "book_id", nullable = false)

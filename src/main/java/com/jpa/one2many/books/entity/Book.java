@@ -20,13 +20,11 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String title;  // 書名
+    private String author; // 作者
 
-    private String title;
-    
-    private String author;
-    
     @Column(unique = true)
-    private String isbn;
+    private String isbn;   // isbn 國際標準書號
 
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)

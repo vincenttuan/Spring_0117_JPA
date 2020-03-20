@@ -22,13 +22,22 @@ public class Car {
     
     @Column
     private String name;
+
+    public Car() {
+    }
+    
+    public Car(String name, Price price, Driver driver) {
+        this.name = name;
+        this.price = price;
+        this.driver = driver;
+    }
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "price_id")
     private Price price;
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "driver_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "driver_id", nullable = false)
     private Driver driver;
     
     public Long getId() {

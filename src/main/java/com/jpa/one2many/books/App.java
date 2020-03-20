@@ -19,7 +19,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        //save();
+        save();
         //System.out.println(service.getBooksRepository().findByISBN("123"));
         //System.out.println(service.getBooksRepository().findByAuthor("Vincent"));
         
@@ -28,9 +28,9 @@ public class App {
 //        pages.stream().forEach(System.out::println);
         
         // 尋找有"基礎", "演算" 的書名
-        StreamSupport.stream(service.getPagesRepository().findAll().spliterator(), false)
-                .filter(p -> p.getContent().contains("基礎") || p.getContent().contains("演算"))
-                .forEach(p -> System.out.println(p.getBook().getTitle()));
+//        StreamSupport.stream(service.getPagesRepository().findAll().spliterator(), false)
+//                .filter(p -> p.getContent().contains("基礎") || p.getContent().contains("演算"))
+//                .forEach(p -> System.out.println(p.getBook().getTitle()));
                 
         
     }

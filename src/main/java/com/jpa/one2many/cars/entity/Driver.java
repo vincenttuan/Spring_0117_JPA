@@ -20,9 +20,17 @@ public class Driver {
     
     @Column
     private String name;
-    
+
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Car> cars;
+    
+    public Driver() {
+    }
+
+    public Driver(String name) {
+        this.name = name;
+    }
+    
     
     public Long getId() {
         return id;

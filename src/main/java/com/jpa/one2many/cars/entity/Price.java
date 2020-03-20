@@ -17,6 +17,13 @@ public class Price {
     
     @Column
     private Integer cost;
+
+    public Price() {
+    }
+
+    public Price(Integer cost) {
+        this.cost = cost;
+    }
     
     public Long getId() {
         return id;

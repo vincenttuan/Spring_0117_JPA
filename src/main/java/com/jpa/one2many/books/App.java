@@ -3,6 +3,7 @@ package com.jpa.one2many.books;
 import com.jpa.one2many.books.entity.Book;
 import com.jpa.one2many.books.entity.Page;
 import com.jpa.one2many.books.service.BooksService;
+import java.util.Set;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
@@ -18,8 +19,13 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         //save();
-        System.out.println(service.getBooksRepository().findByISBN("123"));
-        System.out.println(service.getBooksRepository().findByAuthor("Vincent"));
+        //System.out.println(service.getBooksRepository().findByISBN("123"));
+        //System.out.println(service.getBooksRepository().findByAuthor("Vincent"));
+        
+        Set<Page> pages = service.getBooksRepository().findByISBN("123").getPages();
+        System.out.println(pages);
+        pages.stream().forEach(System.out::println);
+        
     }
     
     public static void save() {

@@ -12,4 +12,5 @@ public interface BooksRepository extends CrudRepository<Book, Long>{
     
     @Query("SELECT b FROM Book b WHERE b.author=:author")
     List<Book> findByAuthor(@Param("author") String author);
+    
 }

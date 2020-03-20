@@ -4,6 +4,7 @@ import com.jpa.one2many.books.entity.Book;
 import com.jpa.one2many.books.entity.Page;
 import com.jpa.one2many.books.service.BooksService;
 import java.util.Set;
+import java.util.stream.StreamSupport;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
@@ -22,9 +23,15 @@ public class App {
         //System.out.println(service.getBooksRepository().findByISBN("123"));
         //System.out.println(service.getBooksRepository().findByAuthor("Vincent"));
         
-        Set<Page> pages = service.getBooksRepository().findByISBN("123").getPages();
-        System.out.println(pages);
-        pages.stream().forEach(System.out::println);
+//        Set<Page> pages = service.getBooksRepository().findByISBN("123").getPages();
+//        System.out.println(pages);
+//        pages.stream().forEach(System.out::println);
+        
+        // 尋找有"基礎", "演算" 的書名
+        StreamSupport.stream(service.getPagesRepository().findAll().spliterator(), false)
+                .filter(p -> p.getContent().contains("基礎") || p.getContent().contains("演算"))
+                .forEach(p -> System.out.println(p.getBook().getTitle()));
+                
         
     }
     

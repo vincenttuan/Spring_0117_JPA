@@ -22,6 +22,9 @@ public class Driver {
     @Column
     private String name;
     
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    Set<Car> cars;
+    
     public Long getId() {
         return id;
     }
@@ -38,4 +41,13 @@ public class Driver {
         this.name = name;
     }
 
+    public Set<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
+    }
+    
+    
 }

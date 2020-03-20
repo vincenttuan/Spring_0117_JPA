@@ -23,6 +23,14 @@ public class Car {
     @Column
     private String name;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "price_id")
+    private Price price;
+    
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "driver_id", referencedColumnName = "id")
+    private Driver driver;
+    
     public Long getId() {
         return id;
     }
@@ -37,6 +45,22 @@ public class Car {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     

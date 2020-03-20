@@ -17,7 +17,10 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        
+        save();
+    }
+    
+    public static void save() {
         Book book = new Book("Java", "Vincent", "123");
         Book book2 = new Book("Python", "Anita", "456");
         
@@ -37,7 +40,6 @@ public class App {
         service.getPagesRepository().save(p4);
         service.getPagesRepository().save(p5);
         service.getPagesRepository().save(p6);
-
     }
 
 }

@@ -15,16 +15,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "drivers")
 public class Driver {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
     private String name;
-    
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Car> cars;
     
     public Long getId() {
         return id;
@@ -40,14 +36,6 @@ public class Driver {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(Set<Car> cars) {
-        this.cars = cars;
     }
 
 }

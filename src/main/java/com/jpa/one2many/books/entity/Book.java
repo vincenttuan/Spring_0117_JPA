@@ -26,7 +26,7 @@ public class Book implements Serializable {
     @Column(name = "author")
     private String author; // 作者
 
-    @Column(unique = true)
+    @Column(name = "isbn", unique = true)
     private String isbn;   // isbn 國際標準書號
 
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY,

@@ -5,6 +5,8 @@
     <class>com.jpa.single.Person</class>
     <class>com.jpa.one2one.family.entity.Husband</class>
     <class>com.jpa.one2one.family.entity.Wife</class>
+    <class>com.jpa.one2many.books.entity.Book</class>
+    <class>com.jpa.one2many.books.entity.Page</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/spring?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useUnicode=true"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

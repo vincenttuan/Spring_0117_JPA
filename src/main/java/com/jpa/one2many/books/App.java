@@ -1,5 +1,6 @@
 package com.jpa.one2many.books;
 
+import com.jpa.one2many.books.entity.Book;
 import com.jpa.one2many.books.service.BooksService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,6 +16,8 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
+        Book book = new Book("Java", "Vincent", "123");
+        service.getBooksRepository().save(book);
         
     }
 

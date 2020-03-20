@@ -1,5 +1,8 @@
-package com.jpa.one2one;
+package com.jpa.one2one.family;
 
+import com.jpa.one2one.family.service.FamilyService;
+import com.jpa.one2one.family.entity.Wife;
+import com.jpa.one2one.family.entity.Husband;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

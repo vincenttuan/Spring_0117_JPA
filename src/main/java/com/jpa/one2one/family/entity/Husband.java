@@ -1,4 +1,4 @@
-package com.jpa.one2one;
+package com.jpa.one2one.family.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.CascadeType;

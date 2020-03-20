@@ -1,5 +1,7 @@
-package com.jpa.one2one;
+package com.jpa.one2one.family.service;
 
+import com.jpa.one2one.family.dao.WifeRepository;
+import com.jpa.one2one.family.dao.HusbandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,7 @@
 package com.jpa.one2many.books.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,14 @@ public class Page implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "number")
     private int number;     // 頁數
+    
+    @Column(name = "content")
     private String content; // 內容
+    
+    @Column(name = "chapter")
     private String chapter; // 章節
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false) // optional = false (inner join), optional = true (left join) 預設

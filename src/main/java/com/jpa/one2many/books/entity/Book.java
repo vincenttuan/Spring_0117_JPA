@@ -19,7 +19,11 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "title")
     private String title;  // 書名
+    
+    @Column(name = "author")
     private String author; // 作者
 
     @Column(unique = true)

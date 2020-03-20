@@ -34,12 +34,9 @@ public class App {
         service.getPagesRepository().save(p2);
         service.getPagesRepository().save(p3);
         
-        Page p4 = new Page(1, "認識 Python", "一", book2);
-        Page p5 = new Page(15, "Python 基礎語法", "二", book2);
-        Page p6 = new Page(35, "Python 演算語法", "三", book2);
-        service.getPagesRepository().save(p4);
-        service.getPagesRepository().save(p5);
-        service.getPagesRepository().save(p6);
+        service.getPagesRepository().save(new Page(1, "認識 Python", "一", book2));
+        service.getPagesRepository().save(new Page(15, "Python 基礎語法", "二", book2));
+        service.getPagesRepository().save(new Page(35, "Python 演算語法", "三", book2));
     }
 
 }

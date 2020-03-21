@@ -29,8 +29,7 @@ public class Book implements Serializable {
     @Column(name = "isbn", unique = true)
     private String isbn;   // isbn 國際標準書號
 
-    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Page> pages;
 
     public Book() {

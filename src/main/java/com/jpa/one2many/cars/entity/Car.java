@@ -32,11 +32,11 @@ public class Car {
         this.driver = driver;
     }
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "price_id")
     private Price price;
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "driver_id", nullable = false)
     private Driver driver;
     

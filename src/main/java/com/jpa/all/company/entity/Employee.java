@@ -34,7 +34,7 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
     
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "employee_club", 
             joinColumns = {
                 @JoinColumn(name = "employee_id", nullable = false, updatable = false)

@@ -21,7 +21,7 @@ public class Driver {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
     Set<Car> cars;
     
     public Driver() {

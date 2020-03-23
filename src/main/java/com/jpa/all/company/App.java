@@ -5,10 +5,7 @@ import com.jpa.all.company.entity.Department;
 import com.jpa.all.company.entity.Employee;
 import com.jpa.all.company.entity.Salary;
 import com.jpa.all.company.service.CompanyService;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {

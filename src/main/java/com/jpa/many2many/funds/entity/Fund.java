@@ -60,10 +60,6 @@ public class Fund {
         return stocks;
     }
 
-    public void setStocks(Set<Stock> stocks) {
-        this.stocks = stocks;
-    }
-
     @Override
     public String toString() {
         return "Fund{" + "id=" + id + ", name=" + name + '}';

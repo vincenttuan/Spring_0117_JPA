@@ -51,10 +51,6 @@ public class Stock {
         return funds;
     }
 
-    public void setFunds(Set<Fund> funds) {
-        this.funds = funds;
-    }
-
     @Override
     public String toString() {
         return "Stock{" + "id=" + id + ", symbol=" + symbol + '}';

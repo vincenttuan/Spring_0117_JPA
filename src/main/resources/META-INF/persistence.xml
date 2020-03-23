@@ -10,6 +10,8 @@
     <class>com.jpa.one2many.cars.entity.Car</class>
     <class>com.jpa.one2many.cars.entity.Driver</class>
     <class>com.jpa.one2many.cars.entity.Price</class>
+    <class>com.jpa.many2many.funds.entity.Fund</class>
+    <class>com.jpa.many2many.funds.entity.Stock</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/spring?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useUnicode=true"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

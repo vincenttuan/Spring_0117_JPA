@@ -54,9 +54,9 @@ public class App {
     }
 
     public static void joinClub() {
-        Club club = service.getClubsRepository().findById(1).get();
-        Employee employee = service.getEmployeesRepository().findById(1).get();
-        club.getEmployees().add(employee);
-        service.getClubsRepository().save(club);
+        Club club = service.getClubsRepository().findById(2).get();
+        Employee employee = service.getEmployeesRepository().findById(3).get();
+        employee.getClubs().add(club);
+        service.getEmployeesRepository().save(employee);
     }
 }

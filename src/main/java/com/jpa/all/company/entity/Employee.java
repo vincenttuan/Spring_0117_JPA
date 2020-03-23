@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -33,7 +34,15 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
     
-    @ManyToMany(mappedBy = "employees")
+    @ManyToMany()
+    @JoinTable(name = "employee_club", 
+            joinColumns = {
+                @JoinColumn(name = "employee_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "club_id", nullable = false, updatable = false)
+            }
+    )
     private Set<Club> clubs = new LinkedHashSet<>();
     
     public Employee() {

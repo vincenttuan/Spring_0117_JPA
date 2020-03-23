@@ -21,15 +21,8 @@ public class Club {
     @Column
     private String name;
     
-    @ManyToMany()
-    @JoinTable(name = "club_employee", 
-            joinColumns = {
-                @JoinColumn(name = "club_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "employee_id", nullable = false, updatable = false)
-            }
-    )
+    @ManyToMany(mappedBy = "clubs")
+    
     private Set<Employee> employees = new LinkedHashSet<>();
 
     public Club() {

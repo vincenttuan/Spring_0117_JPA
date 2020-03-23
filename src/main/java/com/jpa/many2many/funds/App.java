@@ -17,7 +17,15 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        update();
+        remove();
+    }
+    
+    public static void remove() {
+        Fund fund = service.getFundsRepository().findById(2).get();
+        Stock stock = service.getStocksRepository().findById(2).get();
+        int fund_id = fund.getId();
+        int stock_id = stock.getId();
+        service.getFundsRepository().removeStock(fund_id, stock_id);
     }
     
     public static void update() {

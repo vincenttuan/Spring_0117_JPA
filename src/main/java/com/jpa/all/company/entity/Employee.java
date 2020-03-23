@@ -26,6 +26,34 @@ public class Employee {
     @Column
     private String name;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "salary_id")
+    private Salary salary;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) // optional = false (inner join), optional = true (left join) 預設
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+    
+    @ManyToMany()
+    @JoinTable(name = "employee_club", 
+            joinColumns = {
+                @JoinColumn(name = "employee_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "club_id", nullable = false, updatable = false)
+            }
+    )
+    private Set<Club> clubs = new LinkedHashSet<>();
+    
+    public Employee() {
+    }
+    
+    public Employee(String name, Salary salary, Department department) {
+        this.name = name;
+        this.salary = salary;
+        this.department = department;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -42,4 +70,15 @@ public class Employee {
         this.name = name;
     }
 
+    public Set<Club> getClubs() {
+        return clubs;
+    }
+
+    @Override
+    public String toString() {
+        getClubs().size();
+        return "Employee{" + "id=" + id + ", name=" + name + ", salary=" + salary + ", department=" + department + ", clubs=" + clubs+ '}';
+    }
+    
+    
 }

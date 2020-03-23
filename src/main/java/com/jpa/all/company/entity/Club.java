@@ -18,9 +18,19 @@ public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
     @Column
     private String name;
+    
+    @ManyToMany(mappedBy = "clubs")
+    
+    private Set<Employee> employees = new LinkedHashSet<>();
+
+    public Club() {
+    }
+
+    public Club(String name) {
+        this.name = name;
+    }
     
     public Integer getId() {
         return id;
@@ -38,4 +48,14 @@ public class Club {
         this.name = name;
     }
 
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Club{" + "id=" + id + ", name=" + name + '}';
+    }
+
+    
 }

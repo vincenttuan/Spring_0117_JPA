@@ -17,10 +17,19 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
     @Column
     private String name;
     
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Employee> employees;
+
+    public Department() {
+    }
+
+    public Department(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -37,5 +46,14 @@ public class Department {
         this.name = name;
     }
 
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" + "id=" + id + ", name=" + name + '}';
+    }
+    
     
 }

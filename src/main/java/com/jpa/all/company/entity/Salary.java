@@ -13,10 +13,17 @@ public class Salary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
     @Column
     private Integer money;
 
+    public Salary() {
+    }
+
+    public Salary(Integer money) {
+        this.money = money;
+    }
+    
+    
     public Integer getId() {
         return id;
     }
@@ -31,6 +38,11 @@ public class Salary {
 
     public void setMoney(Integer money) {
         this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "Salary{" + "id=" + id + ", money=" + money + '}';
     }
 
     

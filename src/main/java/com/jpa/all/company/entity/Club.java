@@ -2,6 +2,7 @@ package com.jpa.all.company.entity;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Club {
     @Column
     private String name;
     
-    @ManyToMany(mappedBy = "clubs")
+    @ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "clubs")
     private Set<Employee> employees = new LinkedHashSet<>();
 
     public Club() {

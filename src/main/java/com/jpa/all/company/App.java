@@ -6,14 +6,15 @@ import com.jpa.all.company.entity.Employee;
 import com.jpa.all.company.entity.Salary;
 import com.jpa.all.company.service.CompanyService;
 import java.util.Scanner;
+import java.util.stream.StreamSupport;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
 
     static CompanyService service;
-
+    static AnnotationConfigApplicationContext appContext;
     static {
-        AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
+        appContext = new AnnotationConfigApplicationContext();
         appContext.scan("com.jpa");
         appContext.refresh();
         service = (CompanyService) appContext.getBean("companyService");
@@ -77,7 +78,13 @@ public class App {
                 int e_id = sc.nextInt();
                 System.out.println("請輸入欲退出社團 id: ");
                 int c_id = sc.nextInt();
-                service.getEmployeesRepository().removeClub(e_id, c_id);
+                Employee e = service.getEmployeesRepository().findById(e_id).get();
+                Club c = StreamSupport.stream(e.getClubs().spliterator(), false)
+                        .filter(x -> x.getId().equals(c_id))
+                        .findFirst()
+                        .get();
+                e.getClubs().remove(c);
+                service.getEmployeesRepository().save(e);
                 break;
             case 9:
                 System.out.println(service.getDepartmentsRepository().findAll());
